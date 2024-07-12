@@ -1,4 +1,6 @@
 import Button from './Button'
+import { FiTrash2 } from 'react-icons/fi'
+import { IoMdAdd } from 'react-icons/io'
 
 const Tasks = () => {
   return (
@@ -11,8 +13,12 @@ const Tasks = () => {
           <h2 className="font-semibold text-xl">Minhas tarefas</h2>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="ghost">Limpar tarefa</Button>
-          <Button>Nova tarefa</Button>
+          <Button variant="ghost">
+            Limpar tarefa <FiTrash2 />
+          </Button>
+          <Button>
+            Nova tarefa <IoMdAdd />
+          </Button>
         </div>
       </div>
     </div>

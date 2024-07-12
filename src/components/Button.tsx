@@ -16,7 +16,7 @@ const Button = ({ children, variant = 'primary' }: ButtonProps) => {
 
   return (
     <button
-      className={`py-1 px-2 rounded-md text-xs hover:opacity-75 transition ${getVariantClasses()}`}
+      className={`flex items-center gap-1 font-semibold py-1 px-2 rounded-md text-xs hover:opacity-75 transition ${getVariantClasses()}`}
     >
       {children}
     </button>
