@@ -1,6 +1,9 @@
 import Button from './Button'
 import { FiTrash2 } from 'react-icons/fi'
 import { IoMdAdd } from 'react-icons/io'
+import { WiSunrise, WiDaySunny } from 'react-icons/wi'
+import { WiMoonWaningCrescent4 } from 'react-icons/wi'
+import TasksSeparator from './TasksSeparator'
 
 const Tasks = () => {
   return (
@@ -19,6 +22,30 @@ const Tasks = () => {
           <Button>
             Nova tarefa <IoMdAdd />
           </Button>
+        </div>
+      </div>
+
+      {/* Lista de tarefas */}
+      <div className="bg-white rounded-xl p-6">
+        <div className="space-y-3">
+          <TasksSeparator>
+            <WiSunrise size={20} />
+            Manhã
+          </TasksSeparator>
+        </div>
+
+        <div className="space-y-3 my-6">
+          <TasksSeparator>
+            <WiDaySunny size={20} />
+            Tarde
+          </TasksSeparator>
+        </div>
+
+        <div className="space-y-3">
+          <TasksSeparator>
+            <WiMoonWaningCrescent4 size={20} />
+            Noite
+          </TasksSeparator>
         </div>
       </div>
     </div>
