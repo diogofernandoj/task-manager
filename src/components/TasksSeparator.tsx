@@ -1,9 +1,15 @@
-import { ReactNode } from 'react'
+import { ReactElement } from 'react'
 
-const TasksSeparator = ({ children }: { children: ReactNode }) => {
+interface TasksSeparatorProps {
+  title: string
+  icon: ReactElement
+}
+
+const TasksSeparator = ({ title, icon }: TasksSeparatorProps) => {
   return (
-    <div className="flex items-center pb-1 border-b border-solid border-[#F4F4F5] gap-1 text-[#9A9C9F]">
-      {children}
+    <div className="flex items-center pb-1 border-b border-solid border-[#F4F4F5] gap-1">
+      {icon}
+      <p className="text-[#9A9C9F] text-sm">{title}</p>
     </div>
   )
 }

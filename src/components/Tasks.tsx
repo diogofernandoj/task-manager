@@ -28,24 +28,18 @@ const Tasks = () => {
       {/* Lista de tarefas */}
       <div className="bg-white rounded-xl p-6">
         <div className="space-y-3">
-          <TasksSeparator>
-            <WiSunrise size={20} />
-            Manhã
-          </TasksSeparator>
+          <TasksSeparator title="Manhã" icon={<WiSunrise size={20} />} />
         </div>
 
         <div className="space-y-3 my-6">
-          <TasksSeparator>
-            <WiDaySunny size={20} />
-            Tarde
-          </TasksSeparator>
+          <TasksSeparator title="Tarde" icon={<WiDaySunny size={20} />} />
         </div>
 
         <div className="space-y-3">
-          <TasksSeparator>
-            <WiMoonWaningCrescent4 size={20} />
-            Noite
-          </TasksSeparator>
+          <TasksSeparator
+            title="Noite"
+            icon={<WiMoonWaningCrescent4 size={20} />}
+          />
         </div>
       </div>
     </div>
