@@ -3,9 +3,10 @@ import { FaCheck, FaSpinner } from 'react-icons/fa'
 
 interface TaskItemProps {
   task: ITask
+  handleCheckboxClick: (task: number) => void
 }
 
-const TaskItem = ({ task }: TaskItemProps) => {
+const TaskItem = ({ task, handleCheckboxClick }: TaskItemProps) => {
   const getStatusClasses = () => {
     if (task.status === 'done') {
       return 'bg-[#00ADB5] text-[#00ADB5]'
@@ -29,6 +30,7 @@ const TaskItem = ({ task }: TaskItemProps) => {
         className={`h-5 w-5 rounded-sm flex items-center justify-center ${getStatusClasses()}`}
       >
         <input
+          onChange={() => handleCheckboxClick(task.id)}
           type="checkbox"
           checked={task.status === 'done'}
           className="hidden"

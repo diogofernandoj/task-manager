@@ -16,7 +16,7 @@ export interface ITask {
 }
 
 const Tasks = () => {
-  const [tasks] = useState<ITask[]>([
+  const [tasks, setTasks] = useState<ITask[]>([
     {
       id: 1,
       title: 'Estudar',
@@ -47,6 +47,24 @@ const Tasks = () => {
     },
   ])
 
+  const handleCheckboxClick = (taskId: number) => {
+    const newTasks: ITask[] = tasks.map((task) => {
+      if (task.id !== taskId) {
+        return task
+      }
+
+      if (task.status === 'todo') {
+        return { ...task, status: 'doing' }
+      } else if (task.status === 'doing') {
+        return { ...task, status: 'done' }
+      } else {
+        return { ...task, status: 'todo' }
+      }
+    })
+
+    setTasks(newTasks)
+  }
+
   return (
     <div className="py-16 px-8 w-full">
       <div className="flex justify-between">
@@ -73,7 +91,11 @@ const Tasks = () => {
           {tasks
             .filter((task) => task.time === 'morning')
             .map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                handleCheckboxClick={handleCheckboxClick}
+              />
             ))}
         </div>
 
@@ -82,7 +104,11 @@ const Tasks = () => {
           {tasks
             .filter((task) => task.time === 'afternoon')
             .map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                handleCheckboxClick={handleCheckboxClick}
+              />
             ))}
         </div>
 
@@ -94,7 +120,11 @@ const Tasks = () => {
           {tasks
             .filter((task) => task.time === 'evening')
             .map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                handleCheckboxClick={handleCheckboxClick}
+              />
             ))}
         </div>
       </div>
