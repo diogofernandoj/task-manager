@@ -7,6 +7,7 @@ import TasksSeparator from './TasksSeparator'
 import { useState } from 'react'
 import TaskItem from './TaskItem'
 import { TASKS } from '../constants/tasks'
+import { toast } from 'react-toastify'
 
 export interface ITask {
   id: number
@@ -40,6 +41,7 @@ const Tasks = () => {
   const handleDeleteTaskClick = (taskId: number) => {
     const newTasks = tasks.filter((task) => task.id !== taskId)
     setTasks(newTasks)
+    toast('Tarefa deletada com sucesso!')
   }
 
   return (
