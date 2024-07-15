@@ -8,6 +8,7 @@ import { useState } from 'react'
 import TaskItem from './TaskItem'
 import { TASKS } from '../constants/tasks'
 import { toast } from 'react-toastify'
+import AddTaskDialog from './AddTaskDialog'
 
 export interface ITask {
   id: number
@@ -19,6 +20,7 @@ export interface ITask {
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<ITask[]>(TASKS)
+  const [addTaskDialogIsOpen, setAddTaskDialogIsOpen] = useState<boolean>(false)
 
   const handleCheckboxClick = (taskId: number) => {
     const newTasks: ITask[] = tasks.map((task) => {
@@ -57,9 +59,14 @@ const Tasks = () => {
           <Button variant="ghost">
             Limpar tarefa <FiTrash2 />
           </Button>
-          <Button>
+          <Button onClick={() => setAddTaskDialogIsOpen(true)}>
             Nova tarefa <IoMdAdd />
           </Button>
+
+          <AddTaskDialog
+            isOpen={addTaskDialogIsOpen}
+            handleClose={() => setAddTaskDialogIsOpen(false)}
+          />
         </div>
       </div>
 
